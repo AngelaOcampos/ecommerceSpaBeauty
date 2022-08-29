@@ -1,5 +1,7 @@
 import logo from '../logobeauty.png'
 import './NavBar.css'
+import CartWidget from '../CartWidget/CartWidget'
+
 const NavBar = () => {
     
     return(
@@ -13,6 +15,8 @@ const NavBar = () => {
                     <li><a href='#'>INICIO</a></li>
                     <li><a href='#'>SERVICIOS</a></li>
                     <li><a href='#'>CONTACTO</a></li>
+                    <li><a href='#'></a><CartWidget/></li>
+
                 </ul>
             </div>
             <div>
