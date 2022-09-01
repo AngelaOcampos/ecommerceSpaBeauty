@@ -1,0 +1,25 @@
+.contador{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    width: 40%;
+    height: 50px;
+    background-color:rgb(251, 163, 163);
+
+}
+
+.elementoContador{
+    color: beige; 
+    font-size: larger;  
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.elementoContadorInicial{
+    color: black;
+    font-size:larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(255, 228, 199);
+    width: 15%;
+}
+
