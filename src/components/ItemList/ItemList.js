@@ -7,10 +7,12 @@ const ItemList = ({ itemList }) => {
       {itemList?.map((reserva) => {
         return (
           <Item
+            key={reserva.id}
             nombre={reserva.nombre}
-            description={reserva.description}
+            // description={reserva.description}
             precio={reserva.precio}
             imagen={reserva.imagen}
+            
           />
         )
       })}

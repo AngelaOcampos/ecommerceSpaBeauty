@@ -1,0 +1,26 @@
+.item{
+   background-color: rgb(243, 207, 255);
+   width: 100%;
+   gap: 30px;
+   padding: 30px 60px;
+   
+}
+
+.imagen{
+    height: 20%;
+    width: 30%;
+ 
+    
+}
+
+.description{
+    color: rgb(83, 4, 114);
+    font-family:fantasy;
+}
+.precio{
+    color: rgb(63, 1, 56);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.name{
+    color: rgb(63, 1, 56);
+}
