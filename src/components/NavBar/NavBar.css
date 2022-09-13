@@ -1,12 +1,15 @@
 .navbar-container{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    width: 100%;
+    justify-content:space-around;
+    align-items: center;
+    width: auto;
     height: 100px;
     background-color: rgb(243, 207, 255);
     font-family: fantasy;
 }
+
+
 
 ul{
     display: flex;
@@ -22,6 +25,21 @@ li{
 
 button{
    height: 30px;
+}
+
+.listaNav{
+    width: 30%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.linkActivo{
+    color: whitesmoke;
+}
+
+.linkInactivo{
+    color: rgb(73, 69, 69);
 }
 
 

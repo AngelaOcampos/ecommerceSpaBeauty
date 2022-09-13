@@ -1,12 +1,15 @@
 import data from "../ItemListContainer/mock-data";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
+    
 
-    const [ item, setIem ] = useState([]);
-
+    const [ item, setItem ] = useState([]);
+    const{reservasId}= useParams();
+    
     const getItem = new Promise((resolve, reject)=>{
 
         setTimeout(() => {
@@ -14,11 +17,13 @@ const ItemDetailContainer = () => {
         }, 2000)
 
     })
+    
 
     useEffect(() => {
         getItem.then((listaDeItems) => {
+            const reserva = listaDeItems.find(item=> item.id === reservasId);
 
-            setIem(listaDeItems[0])
+            setItem(reserva)
         })
     }, [])
 
