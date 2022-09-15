@@ -1,25 +1,47 @@
+.contenedorItemCount{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 60%;
+    background-color:rgb(251, 163, 248);
+    opacity: 0.8;
+    border-radius: 3%;
+
+
+}
+
+.stockTitle{
+    margin: 0.2rem;
+}
+
 .contador{
     display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-    width: 40%;
-    height: 50px;
-    background-color:rgb(251, 163, 163);
-
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
-
 .elementoContador{
-    color: beige; 
-    font-size: larger;  
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    color: rgb(16, 16, 15); 
+    padding: 0.5;
 }
 
-.elementoContadorInicial{
-    color: black;
-    font-size:larger;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(255, 228, 199);
-    width: 15%;
+.botonAgregar{
+    background-color: transparent;
+    border-radius: 5%;
+    color: blueviolet;
+    border-color: blueviolet;
+    border-width: 0.2rem;
+    margin: 0.2rem;
+    width: 50%;
+    align-self: center;
+}
+.botonItemCount{
+    cursor:pointer
+}
+
+.botonItemCount:disabled{
+    background-color: black;
+    opacity: 0.5;
+    cursor: default;
 }
 

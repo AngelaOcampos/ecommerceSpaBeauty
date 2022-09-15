@@ -1,5 +1,5 @@
 import React from 'react'
-// import ItemCount from '../ItemCount/ItemCount'
+import ItemCount from '../ItemCount/ItemCount'
 import data from './mock-data';
 import { useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
@@ -37,7 +37,7 @@ const ItemListContainer = () => {
       <ItemList itemList={items}/>
       </div>
     </>
-    // <ItemCount stock={5} initial={0} onAdd={1}/>
+    
   )
 }
 

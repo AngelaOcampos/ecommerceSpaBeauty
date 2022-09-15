@@ -1,38 +1,40 @@
 import { useState } from "react";
 import './ItemCount.css'
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    
+const ItemCount = ({ stock, initial, onAdd }) => {
+
     const [valorInicial, setValorInicial] = useState(initial);
-    const [stockDisponible, setStockDisponible] = useState(stock);
+   
 
     const restarArticulo = () => {
-        if ((valorInicial - onAdd) >= 0){
-            setValorInicial(valorInicial - onAdd);
-            setStockDisponible(stockDisponible + onAdd);
-        } else{
+        if ((valorInicial - 1) >= 0) {
+            setValorInicial(valorInicial -1 );
+        } else {
             alert("No se pueden quitar más artículos")
         }
     }
 
     const sumarArticulo = () => {
-        if ((stockDisponible - onAdd) >= 0 ){
-            setValorInicial(valorInicial + onAdd);
-            setStockDisponible(stockDisponible - onAdd);
-        } else { 
+        if ((stock - 1 - valorInicial) >= 0) {
+            setValorInicial(valorInicial + 1);
+        } else {
             alert('No hay mas Stock')
         }
     }
 
     return (
         <>
-        <div className='contador'>
-            <div className='elementoContador' onClick={restarArticulo}>-</div>
-            <div className='elementoContadorInicial'>{valorInicial}</div>
-            <div className='elementoContador' onClick={sumarArticulo}>+</div>
-        </div>
+            <div className='contenedorItemCount'>
+                <h5 className="stockTitle">Stock Disponible : {stock}</h5>
+                <div className="contador">
+                    <button disabled={stock === 0 || valorInicial === 0} className='elementoContador botonContador botonItemCount' onClick={restarArticulo}>-</button>
+                    <div className='elementoContador'>{valorInicial}</div>
+                    <button disabled={stock === 0 || valorInicial >= stock} className='elementoContador botonContador botonItemCount' onClick={sumarArticulo}>+</button>
+                </div>
+                <button disabled={stock === 0 || valorInicial === 0} className="botonAgregar  botonItemCount" onClick={() => onAdd(valorInicial)}>Agregar al carrito</button>
+            </div>
         </>
-      )
+    )
 
 }
 

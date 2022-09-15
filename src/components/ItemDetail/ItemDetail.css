@@ -1,0 +1,31 @@
+.item-detail{
+    display: flex;
+    flex-flow: column;
+    width: 30%;
+    height: max-content;
+    padding: 1rem;
+    margin: 1rem;
+    border-style: solid;
+    border-color: violet;
+    border-radius: 2%;
+
+}
+
+.imagen-detail{
+    width: 100%;
+    justify-content: center;
+}
+
+.detalle-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    height: 50%;
+
+}
+
+.descricion-detail{
+    font-size: large;
+}

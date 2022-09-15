@@ -7,7 +7,7 @@ const data = [
         nombre: "Mancuría",
         description: "Manicuría y esmaltado de uñas, para mantenerlas lindas siempre",
         precio: "$2500",
-        stock:3,
+        stock:"3",
         categoria:"spa",
     },
     {
@@ -16,7 +16,7 @@ const data = [
         nombre: "Peeling Químico ",
         description:"Tratamiento facial para obtener una piel más sana y limpia",
         precio: '$1800',
-        stock : 5,
+        stock : "5",
         categoria:"spa",
     },
     {
@@ -25,7 +25,7 @@ const data = [
         nombre: "Alisado",
         description: "Un alisado perfecto para tu pelo con producos que no dañan tu cabello",
         precio:"$3000",
-        stock: 2,
+        stock: "2",
         categoria:"peluqueria",
     },
     {
@@ -43,7 +43,7 @@ const data = [
         nombre: "Teñido de Cabello",
         description: "Procedimiento para cambiar el color del pelo.",
         precio:"$3000",
-        stock: 2,
+        stock: "2",
         categoria:"peluqueria",
     },
     {id:"6",
@@ -51,7 +51,7 @@ const data = [
         nombre: "Pedicuría",
         description: "Limpieza, reconstrucción y esmaltados.",
         precio: "$2500",
-        stock:3,
+        stock:"3",
         categoria:"spa",
     },    
 

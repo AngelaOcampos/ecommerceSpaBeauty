@@ -12,7 +12,7 @@ const ItemList = ({ itemList }) => {
             nombre={reserva.nombre}
             precio={reserva.precio}
             imagen={reserva.imagen}
-            
+            stock={reserva.stock}
           />
         )
       })}
