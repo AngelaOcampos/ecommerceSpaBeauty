@@ -29,5 +29,6 @@
 .boton-ver {
     margin-bottom: 0.5rem;
     width: 5rem;
-    border-radius: 10%;
+    border-radius: 5px;
+    background-color: violet;
 }

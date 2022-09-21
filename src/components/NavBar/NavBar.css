@@ -36,11 +36,18 @@ button{
 
 .linkActivo{
     color: whitesmoke;
+    
 }
 
 .linkInactivo{
     color: rgb(73, 69, 69);
+    
+}
+.carritoInactivo{
+    color: gray;
 }
 
-
+.navBar-linkCarrito{
+    font-size: larger;
+}
 

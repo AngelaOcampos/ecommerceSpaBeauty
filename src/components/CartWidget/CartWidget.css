@@ -1,0 +1,7 @@
+.carrito{
+    display: flex;
+    
+}
+.carrito-cantidad{
+    font-size: small;
+}

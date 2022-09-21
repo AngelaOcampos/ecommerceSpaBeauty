@@ -1,10 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import "./ItemDetail.css"
 import { CartContex } from '../../context/CartContex';
+import BotonFinalizarCompra from '../BotonFinalizarCompra/BotonFinalizarCompra'
 
 const ItemDetail = ({ item }) => {
     const {productCartList, isInCart, addItem} = useContext(CartContex);
+    const [productosAgregados, setProductosAgregados] = useState(false);
     
     const itemStock = () => {
         if(isInCart(item.id)){
@@ -19,24 +21,28 @@ const ItemDetail = ({ item }) => {
 
         alert(`Se agregaron ${unidades} unidades de ${item.nombre} al carrito`)
         addItem(item, unidades)
+        setProductosAgregados(true)
     }
 
 
-    return (
-        <>
-            <div className="item-detail">
-                <img className="imagen-detail" src={item.imagen} alt={item.nombre} />
-                <div className="detalle-detail">
-                    <h4>{item.nombre}</h4>
-                    <h5>{item.precio}</h5>
-                    <p className="descripcion-detail">{item.description}</p>
-                    <ItemCount stock={itemStock()}  initial={1} onAdd={onAdd}/>
+        return (
+            <>
+                <div className="item-detail">
+                    <img className="imagen-detail" src={item.imagen} alt={item.nombre} />
+                    <div className="detalle-detail">
+                        <h4>{item.nombre}</h4>
+                        <h5>${item.precio}</h5>
+                        <p className="descripcion-detail">{item.description}</p>
+                        
+                        {!productosAgregados ? <ItemCount stock={itemStock()} initial={1} onAdd={onAdd}/> : <BotonFinalizarCompra/>}
+                        
+                    
+                    </div>
                 </div>
-            </div>
 
 
-        </>
-    )
+            </>
+        )
 }
 
 export default ItemDetail

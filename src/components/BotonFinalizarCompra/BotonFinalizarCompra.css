@@ -1,0 +1,14 @@
+.contenedorBotonFinalizarCompra{
+    background-color: violet;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+.botonFinalizarCompra{
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+   
+}

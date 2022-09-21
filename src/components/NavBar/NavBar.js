@@ -2,8 +2,12 @@ import logo from '../logobeauty.png'
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import {Link, NavLink} from 'react-router-dom' 
+import { useContext } from 'react';
+import { CartContex } from '../../context/CartContex';
 
 const NavBar = () => {
+
+    const {productCartList} = useContext(CartContex)
     
     return(
         <div className='navbar-container'>
@@ -17,10 +21,11 @@ const NavBar = () => {
                 <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/spa">SPA</NavLink>
                 <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/peluqueria">PELUQUERÍA</NavLink>
                 <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/contacto">CONTACTO</NavLink>
-                <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/carrito"><CartWidget/></NavLink>
+                
             </div>
-            <div>
-                <button>REGISTRARSE</button>
+            <div className='navBar-linkCarrito' >
+            <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/carrito">{productCartList.length > 0? <CartWidget/> : null }</NavLink>
+            {productCartList.length < 1 ? <div className="carritoInactivo" ><CartWidget/></div> : null }
             </div>
         </div>
     )
