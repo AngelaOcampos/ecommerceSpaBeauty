@@ -1,43 +1,58 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
-import data from './mock-data';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css'
+import { db } from "../../utils/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
 
-    const {categoryId} = useParams ();
+  const { categoryId } = useParams();
+  const [items, setItems] = useState([]);
 
-    const [items, setItems] = useState([]);
+
+
+  useEffect(() => {
     
-    const getData = new Promise ((resolve, reject) => {
-      setTimeout(() => {
-        resolve(data)
-      }, 1000)
+    const getData = new Promise((resolve, reject) => {
+      
+      let queryRef;
+
+      if(categoryId){
+        queryRef = query(collection(db,"reservas"), where("categoria", "==", categoryId ))
+      } else{
+        queryRef = collection(db,"reservas")
+      }
+      const data = getDocs(queryRef)
+      resolve(data)
+      
     })
 
-      useEffect( () => {
-        getData.then((result) => {
-          if(categoryId){
-            const newReserva = result.filter(item=> item.categoria === categoryId)
-            setItems(newReserva);
-          } else{
-            setItems(result)
-          }
-          
-          
-        } )
-      }, [categoryId] );
+
+    getData.then((result) => {
+      
+      const reservas = result.docs.map(doc=>{
+
+        const nuevaReserva = {
+          ...doc.data(),
+          id: doc.id
+        }
+        return nuevaReserva
+      })
+
+      setItems(reservas)
+
+    })
+  }, [categoryId]);
 
   return (
     <>
       <div className='itemList'>
-      <ItemList itemList={items}/>
+        <ItemList itemList={items} />
       </div>
     </>
-    
+
   )
 }
 
