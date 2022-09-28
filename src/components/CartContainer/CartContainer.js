@@ -2,21 +2,37 @@ import React, { useContext, useState, useEffect} from 'react';
 import { CartContex } from '../../context/CartContex';
 import './CartContainer.css'
 import {Link} from 'react-router-dom'
+import {db} from '../../utils/firebase'
+import {collection, addDoc} from 'firebase/firestore'
 
 const CartContainer = () => {
-    const {productCartList,removeItem, clear} = useContext(CartContex);
-    const [totalproducto, setTotalProducto] = useState('');
+    const {productCartList,removeItem, clear, getTotal} = useContext(CartContex);
+    const [totalProducto, setTotalProducto] = useState('');
     const [carritoVacio,setCarritoVacio] = useState(false);
+    const [idOrder, setIdOrder] = useState("");
+
+    const sendOrder = (event) =>{
+        event.preventDefault()
+        const order ={
+            buyer: {
+                name: event.target[0].value,
+                phone: event.target[1].value,
+                email: event.target[2].value
+            },
+            items: productCartList,
+            date: Date(),
+            total: totalProducto
+        }
+        const queryRef = collection(db, "ordenes")
+        addDoc(queryRef, order).then(response =>{
+            setIdOrder(response.id)
+            clear()
+        })
+    }
 
     useEffect(()=>{
-        const valoresCarrito =[];
-        productCartList.forEach((producto)=> {
-            let valor = parseInt(producto.precio) * parseInt(producto.quantity)
-            valoresCarrito.push(valor)
-        })
-        const total = valoresCarrito.reduce((acumulador, valor)=> acumulador + valor, 0)
-        total.toFixed(2)
-        setTotalProducto(total)
+        
+        setTotalProducto(getTotal)
 
     }, [productCartList])
 
@@ -37,12 +53,31 @@ const CartContainer = () => {
                         </div>
                     </>
                 ))}
-                <p>total: ${totalproducto}</p>
+                <p>total: ${totalProducto}</p>
                 <button className='contenedorCarrito-botonVaciar' onClick={()=>clear()}>Vaciar Carrito</button>
+                <form className='cCForm' onSubmit={sendOrder}>
+                <label>Nombre: </label>
+                <input className='cCForm-input' type="text"/>
+                <label>Teléfono: </label>
+                <input className='cCForm-input' type="text"/>
+                <label>correo: </label>
+                <input className='cCForm-input' type="email"/>
+                <button className='cCForm-CompletarReserva' type='submit'>CompletarReserva</button>
+                </form>
+
             </div>
         </>
     )
-   } else {
+   } else if(idOrder){
+
+    return(
+        <>
+            <p>Se creó su orden con id: {idOrder}</p>
+            <button className='botonContinuarComprando'><Link className='botonContinuarComprando' to="/">Continuar Reservando!</Link></button>
+        </>
+    )
+    
+   } else{
     return(
         <>
         <p>El carrito se encuentra vacío, vuelve al Inicio para seguir Reservando</p>

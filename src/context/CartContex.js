@@ -50,8 +50,19 @@ export const CartProvider = ({ children }) => {
 
     }
 
+    const getTotal = () => {
+        const valoresCarrito =[];
+        productCartList.forEach((producto)=> {
+            let valor = parseInt(producto.precio) * parseInt(producto.quantity)
+            valoresCarrito.push(valor)
+        })
+        const total = valoresCarrito.reduce((acumulador, valor)=> acumulador + valor, 0)
+        total.toFixed(2)
+        return total
+    }
+
     return (
-        <CartContex.Provider value={{ productCartList, addItem, removeItem, clear, isInCart }}>
+        <CartContex.Provider value={{ productCartList, addItem, removeItem, clear, isInCart, getTotal }}>
             {children}
         </CartContex.Provider>
     )

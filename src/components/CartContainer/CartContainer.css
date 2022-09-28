@@ -26,9 +26,9 @@
 .contenedorCarrito-botonVaciar{
     background-color:  rgb(255, 189, 255);
     color: rgb(5, 4, 4);
-    border-radius: 10%;
+    border-radius: 5px;
     cursor: pointer;
-    width: 30%;
+    width: 20%;
     font-size: medium;
 
 }
@@ -36,4 +36,24 @@
     font-size: large;
     background-color: violet;
     color: black;
+}
+
+.cCForm{
+    padding: 0.5rem;
+    display: flex;
+}
+
+.cCForm-input{
+
+    margin-right: 0.8rem;
+    font-weight: bold;
+}
+.cCForm-CompletarReserva{
+
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    
 }
