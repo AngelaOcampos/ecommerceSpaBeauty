@@ -13,21 +13,32 @@ const CartContainer = () => {
 
     const sendOrder = (event) =>{
         event.preventDefault()
+
+        let nombre = event.target[0].value
+        let telefono = event.target[1].value
+        let correo = event.target[2].value
+        let repetirCorreo = event.target[3].value
+
         const order ={
             buyer: {
-                name: event.target[0].value,
-                phone: event.target[1].value,
-                email: event.target[2].value
+                name: nombre,
+                phone: telefono,
+                email: correo
             },
             items: productCartList,
             date: Date(),
             total: totalProducto
         }
-        const queryRef = collection(db, "ordenes")
-        addDoc(queryRef, order).then(response =>{
-            setIdOrder(response.id)
-            clear()
-        })
+        if(correo === repetirCorreo){
+            const queryRef = collection(db, "ordenes")
+            addDoc(queryRef, order).then(response =>{
+                setIdOrder(response.id)
+                clear()
+             })   
+        }else{
+            alert("revise los correos ingresados")
+        }
+        
     }
 
     useEffect(()=>{
@@ -57,11 +68,13 @@ const CartContainer = () => {
                 <button className='contenedorCarrito-botonVaciar' onClick={()=>clear()}>Vaciar Carrito</button>
                 <form className='cCForm' onSubmit={sendOrder}>
                 <label>Nombre: </label>
-                <input className='cCForm-input' type="text"/>
+                <input className='cCForm-input' type="text" required/>
                 <label>Teléfono: </label>
-                <input className='cCForm-input' type="text"/>
+                <input className='cCForm-input' type="text" required/>
                 <label>correo: </label>
-                <input className='cCForm-input' type="email"/>
+                <input className='cCForm-input' type="email" required/>
+                <label>Repetir correo: </label>
+                <input className='cCForm-input' type="email" required/>
                 <button className='cCForm-CompletarReserva' type='submit'>CompletarReserva</button>
                 </form>
 

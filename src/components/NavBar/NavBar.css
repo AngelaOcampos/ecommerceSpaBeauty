@@ -32,6 +32,7 @@ button{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .linkActivo{
@@ -51,3 +52,45 @@ button{
     font-size: larger;
 }
 
+.dropbtn{
+    color: rgb(73, 69, 69);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: rgba(137, 43, 226, 0.763);
+    z-index: 1;
+    top: 2.5rem;
+    border: solid;
+    border-color:  rgb(243, 207, 255);
+    
+}
+
+.dropdown-content a{
+    color: rgb(73, 69, 69);
+    text-decoration: none;
+    display: block;
+    margin: 1rem;
+}
+
+.dropdown-content :hover{
+    background-color: #f1f1f171;
+    
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown:hover .dropbtn{
+    color: white;
+}

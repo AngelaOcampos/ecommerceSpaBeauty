@@ -18,8 +18,13 @@ const NavBar = () => {
             </div>
             <div className='listaNav'>
                 <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/">INICIO</NavLink>
-                <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/spa">SPA</NavLink>
-                <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/peluqueria">PELUQUERÍA</NavLink>
+                <div className='dropdown'>
+                    <h4 className='dropbtn'>SERVICIOS</h4>
+                    <div className='dropdown-content'>
+                        <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/spa">SPA</NavLink>
+                        <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/reservas/peluqueria">PELUQUERÍA</NavLink>    
+                    </div>
+                </div>
                 <NavLink className={({isActive})=> isActive? "linkActivo" : "linkInactivo"} to="/contacto">CONTACTO</NavLink>
                 
             </div>

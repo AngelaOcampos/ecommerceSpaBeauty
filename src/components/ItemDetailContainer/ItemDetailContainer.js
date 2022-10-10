@@ -8,7 +8,8 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([]);
     const { reservasId } = useParams();
-
+    const [buscado, setBuscado] = useState(false);
+ 
     useEffect(() => {
         const getItem = new Promise((resolve, reject) => {
 
@@ -26,14 +27,23 @@ const ItemDetailContainer = () => {
             }
 
             setItem(reserva)
+            setBuscado(true)
         })
     }, [reservasId])
 
-    return (
-        <>
-            <ItemDetail item={item} />
-        </>
-    )
+
+    if(item.nombre){
+        return (
+            <>
+                <ItemDetail item={item} />
+            </>
+        )
+    } else if(buscado){
+        return(<h3>no se encontró el item elegido</h3>)
+    } else{
+        return(<h3>Cargando... Por favor espere.</h3>)
+    }
+    
 }
 
 export default ItemDetailContainer
