@@ -23,3 +23,6 @@ También se pueden visualizar logs de errores en la consola de desarrollador.
 
 - Se utilizó la librería FontAwesome url: https://fontawesome.com/ para el ícono del carrito
 - Se utilizó la consola Firebase de google como ejemplo de base de datos url:https://console.firebase.google.com/project/ecommercebeauty-3ae03/overview?hl=es-419
+
+https://user-images.githubusercontent.com/103663672/194961224-63119520-dd42-4f82-8061-b55d53b56113.mp4
+
